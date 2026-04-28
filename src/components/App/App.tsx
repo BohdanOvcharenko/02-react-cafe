@@ -4,6 +4,7 @@ import css from './App.module.css';
 import { useState } from 'react';
 import VoteOptions from '../VoteOptions/VoteOptions.tsx';
 import VoteStats from '../VoteStats/VoteStats.tsx';
+import Notification from '../Notification/Notification.tsx';
 
 const initialVotes: Votes = {
   good: 0,
@@ -42,7 +43,7 @@ const positiveRate = totalVotes ? (votes.good / totalVotes) * 100 : 0;
         canReset={totalVotes > 0}
       />
       {totalVotes === 0 ? (
-        <p className={css.message}>No feedback yet</p>
+        <Notification />
       ) : (
         <VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate} />
       )}
